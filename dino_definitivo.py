@@ -1060,12 +1060,13 @@ class CamHandler(BaseHTTPRequestHandler):
                             <li>Para <b>AGACHARTE</b>: <span class="instr-highlight">Baja un poco la cabeza</span>.</li>
                             <li>Para <b>JUGAR DE NUEVO</b>: <span class="instr-highlight">Muestra la palma</span>.</li>
                             <li>¡Diviértete!</li>
-                            <li>Al terminar, pulsa <b>PAUSAR</b> o <b>FINALIZAR JUEGO</b>.</li>
+                            <li>Al terminar, pulsa <b>NUEVO JUGADOR</b> para que otro intente, o <b>FINALIZAR JUEGO</b>.</li>
                         </ol>
                     </div>
                     <div id="controls-container">
                         <button id="btn-calibrate" class="btn btn-calibrate" onclick="doCalibrate()">CALIBRAR (Letra 'C')</button>
                         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">PAUSAR</button>
+                        <button id="btn-reset" class="btn btn-reset" onclick="doReset()">NUEVO JUGADOR</button>
                         <button class="btn-close btn" onclick="doClose()">FINALIZAR JUEGO</button>
                     </div>
                 </div>

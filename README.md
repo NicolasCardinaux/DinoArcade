@@ -59,7 +59,7 @@ Se abrirá una ventana grande (1200x650 aprox.). **No intentes redimensionarla d
 3. Para **SALTAR**: ¡Abre la boca! 😲
 4. Para **AGACHARTE**: Inclina levemente la cabeza hacia abajo. 🙇
 5. Para **REINTENTAR** si chocaste: Muestra la palma de tu mano abierta a la cámara. ✋
-6. Al terminar, puedes pulsar **PAUSAR** o **FINALIZAR JUEGO**.
+6. Al terminar, pulsa **NUEVO JUGADOR** para que otro intente, o **FINALIZAR JUEGO** para salir.
 7. ¡Diviértete!
 
 ---
