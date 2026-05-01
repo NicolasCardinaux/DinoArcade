@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title >chrome easter egg: t-rex runner</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <style>
+        canvas { image-rendering: pixelated; }
+    </style>
+    <script src="index.js"></script>
+</head>
+
+<body id="t" class="offline">
+    <div id="messageBox" class="sendmessage">
+
+         <div class="niokbutton" onclick="okbuttonsend()"></div>
+    </div>
+    <div id="main-frame-error" class="interstitial-wrapper">
+        <div id="main-content">
+            <div class="icon icon-offline" alt=""></div>
+        </div>
+        <div id="offline-resources">
+            <img id="offline-resources-1x" src="assets/default_100_percent/100-offline-sprite.png">
+            <img id="offline-resources-2x" src="assets/default_200_percent/200-offline-sprite.png">
+            <template id="audio-resources">
+                <audio id="offline-sound-press" src="assets/jump.wav"></audio>
+                <audio id="offline-sound-hit" src="assets/hit.wav"></audio>
+                <audio id="offline-sound-reached" src="assets/score.wav"></audio>
+            </template>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 32) {
+        var box = document.getElementById("messageBox");
+        box.style.visibility="hidden";
+    }
+};
+</script>
+    
+</html>
