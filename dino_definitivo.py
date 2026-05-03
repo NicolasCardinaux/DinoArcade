@@ -92,6 +92,7 @@ class CamHandler(BaseHTTPRequestHandler):
                         elif filepath.endswith('.js'): self.send_header('Content-type', 'application/javascript')
                         elif filepath.endswith('.png'): self.send_header('Content-type', 'image/png')
                         elif filepath.endswith('.html'): self.send_header('Content-type', 'text/html')
+                        elif filepath.endswith('.wav'): self.send_header('Content-type', 'audio/wav')
                         self.end_headers()
                         self.wfile.write(f.read())
                 else:

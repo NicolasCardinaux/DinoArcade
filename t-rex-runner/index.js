@@ -904,6 +904,9 @@
          */
         playSound: function (soundBuffer) {
             if (soundBuffer) {
+                if (this.audioContext && this.audioContext.state === 'suspended') {
+                    this.audioContext.resume();
+                }
                 var sourceNode = this.audioContext.createBufferSource();
                 sourceNode.buffer = soundBuffer;
                 sourceNode.connect(this.audioContext.destination);
