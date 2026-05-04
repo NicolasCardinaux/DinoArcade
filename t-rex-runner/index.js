@@ -311,8 +311,6 @@
          */
         loadSounds: function () {
             if (!IS_IOS) {
-                this.audioContext = new AudioContext();
-
                 var resourceTemplate =
                     document.getElementById(this.config.RESOURCE_TEMPLATE_ID).content;
 
@@ -320,25 +318,7 @@
                     var soundSrc =
                         resourceTemplate.getElementById(Runner.sounds[sound]).src;
                     
-                    if (soundSrc.startsWith('data:')) {
-                        soundSrc = soundSrc.substr(soundSrc.indexOf(',') + 1);
-                        var buffer = decodeBase64ToArrayBuffer(soundSrc);
-
-                        // Async, so no guarantee of order in array.
-                        this.audioContext.decodeAudioData(buffer, function (index, audioData) {
-                            this.soundFx[index] = audioData;
-                        }.bind(this, sound));
-                    } else {
-                        // Fetch the audio file asynchronously
-                        let currentSound = sound;
-                        fetch(soundSrc)
-                            .then(response => response.arrayBuffer())
-                            .then(buffer => this.audioContext.decodeAudioData(buffer))
-                            .then(audioData => {
-                                this.soundFx[currentSound] = audioData;
-                            })
-                            .catch(err => console.error("Error loading sound:", err));
-                    }
+                    this.soundFx[sound] = new Audio(soundSrc);
                 }
             }
         },
@@ -902,15 +882,10 @@
          * Play a sound.
          * @param {SoundBuffer} soundBuffer
          */
-        playSound: function (soundBuffer) {
-            if (soundBuffer) {
-                if (this.audioContext && this.audioContext.state === 'suspended') {
-                    this.audioContext.resume();
-                }
-                var sourceNode = this.audioContext.createBufferSource();
-                sourceNode.buffer = soundBuffer;
-                sourceNode.connect(this.audioContext.destination);
-                sourceNode.start(0);
+        playSound: function (soundObj) {
+            if (soundObj) {
+                soundObj.currentTime = 0;
+                soundObj.play().catch(e => console.error("Sound play error", e));
             }
         },
 
